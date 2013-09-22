@@ -1,0 +1,269 @@
+header {  
+  width:100%;
+  height: 67px;
+  position: absolute;
+  z-index: 99;
+  background: url('../images/background_light.gif') repeat; 
+
+  .inner {
+    background: url('../images/placeholder_header.png') center no-repeat;
+    width: 100%;
+    height: 65px;
+  }
+}
+
+.wobbly-line {
+  width:100%;
+  height:5px;
+  background: url('../images/wobbly_line.png') center bottom repeat-x;
+}
+
+header.show { top:0; }  
+
+.divider {
+  height: 55px;
+  width: 100%;
+  position: absolute;
+  bottom:0;
+  background: url('../images/divider.png') repeat-x bottom; 
+}
+
+.main {
+  z-index: 1;
+  position: relative;
+
+  .divider { position: relative; }
+}
+
+
+
+
+
+
+// Parallax Scene
+.parallax  {
+  background: url('../images/background_green.gif');
+  overflow: hidden;
+  position: relative;
+  height: 630px;
+  overflow:hidden;
+  z-index: 0; 
+ 
+
+  .scene {
+    width:1004px;
+    position:fixed;
+    left:50%;
+    top:50%;
+    margin: -315px 0 0 -502px;
+    padding: 0;
+
+    @include breakpoint( $mq-medium ) { 
+      width:502px;
+      margin: -160px 0 0 -251px;
+      height: 400px;
+    }
+  }
+
+  .sprite{ 
+    background: url('../images/sprite_parallax.png') no-repeat ;
+    width: 1004px; 
+    height: 637px; 
+
+    @include breakpoint( $mq-medium ) { 
+      background: url('../images/sprite_parallax_small.png') no-repeat ; 
+      width: 520px; 
+      height: 318.5px; 
+    }
+  }
+
+  // Parallax Sprite Positioning
+  .boy-girl-text{ background-position: 0 0; } 
+  .boy-girl{ 
+    background-position: 0 -687px; 
+    @include breakpoint( $mq-medium ) {  background-position: 0 -343.5px; }
+  } 
+  .clouds_background{ 
+    background-position: 0 -1374px; 
+    @include breakpoint( $mq-medium ) {  background-position: 0 -687px; }  
+  } 
+  .clouds_foreground{ 
+    background-position: -1054px 0;
+    @include breakpoint( $mq-medium ) {  background-position: -502px 0; }
+  } 
+  .text{ 
+    background-position: -1054px -687px; 
+    @include breakpoint( $mq-medium ) {  background-position: -502px -343.5px; }
+  } 
+  .tree{ 
+    background-position: -1054px -1374px; 
+    @include breakpoint( $mq-medium ) {  background-position: -502px -687px; }
+  } 
+
+
+
+  .lozenge {
+    background-color: #f05a57;
+    border: none;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.4);
+    color: white;
+    display: block;
+    font-size: em(22px);
+    font-weight: normal;
+    line-height: em(60px);
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+    width: 410px;
+    border-color: #f05a57; 
+    position:absolute;
+    left:50%;
+    bottom:90px;
+    margin-left: -205px;
+
+    @include border-radius( 5px ); 
+    @include transition( background-color 400ms linear );
+
+    @include breakpoint( $mq-medium ) {  
+      width: 200px;      
+      margin-left: -100px; 
+      line-height: em(50px);
+      bottom:130px;
+    }
+  }
+} 
+ 
+.touch .parallax .scene { position: absolute; }
+
+
+
+
+
+// Main section 
+// Images
+.centered-bg-images {
+  width: 100%;
+  padding:100px 0; 
+  top:0;
+  left: 0; 
+  position: absolute;
+  z-index: 1;
+
+  ul { 
+    max-width : 1000px;
+    width: 100%;
+    margin: 0 auto; 
+    overflow: hidden;
+    @include breakpoint( 800px ) { display:none; }
+
+    li { 
+      width : 100% ;
+      height: 265px;
+      margin-top: 50px; 
+      @include transition( all 0.5s $ease-out-back ); 
+ 
+      .sprite { background: url('../images/sprite_story.gif'); }
+
+      .boy { background-position: 0 -608px; width: 195px; height: 298px; }
+      .letter-wrap { background-position: 0 -1512px; width: 188px; height: 202px; }
+      .inuit { 
+        background-position: 0 -1208px; width: 224px; height: 254px; }
+      .framed-bear { 
+        margin-top: 80px;
+        background-position: 0 -956px; width: 215px; height: 202px;
+      }
+      .boy-happy { background-position: 0 -304px; width: 174px; height: 254px; }
+      .angel { 
+        background-position: 0 0; width: 283px; height: 254px;
+        bottom:0;
+      }
+    }
+
+    li div {  
+      margin: 0; 
+      @include breakpoint( 1000px) { margin: 0 0 0 -4%; }
+    }
+    li:nth-child(even) div { 
+      float:right;
+      margin: 0; 
+      @include breakpoint( 1000px) { margin: 0 -4% 0 0; }
+    }
+
+
+  }
+}
+ 
+.no-touch .centered-bg-images ul li { opacity:0; }
+.no-touch .centered-bg-images ul li.reveal,
+.touch .centered-bg-images ul li { opacity : 1; margin-top: 0px; }
+
+
+ 
+
+ 
+
+
+// Wording
+.centered-content {
+  width: 90%;
+  max-width: 960px;
+  margin: 0px auto;
+  padding:180px 0 90px;
+  position: relative;
+  z-index: 2;
+}
+
+
+.paragraph-text p, 
+.paragraph-text h2 { 
+  padding: 1em 1em 4em;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto; 
+
+  @include breakpoint( 800px ) { padding: 1em;}
+}
+
+.paragraph-text .standout  { 
+  font-size: em( 22px );
+  font-weight: 700;
+}
+
+.paragraph-text p.standout:first-letter {  
+  font-size   : $base-font-size*1.6;
+}
+.paragraph-text p {
+  @include breakpoint( 500px ) { font-size : .8em; }
+}
+
+.paragraph-text.base {
+  background: url('../images/background_light.gif') repeat; 
+  margin-bottom: 0;
+  padding-bottom: 2em;
+}
+
+
+
+
+// Trail
+.trail {  
+  margin-top: 200px; 
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("../images/trail.gif") no-repeat center top;
+  width: 100%;
+  opacity:0;
+  z-index: 0;
+  display: block;
+
+  @include transition( opacity 0.8s linear );
+  @include breakpoint( 800px ) { display: none }
+}
+
+.trail.display { opacity : .5 }
+
+.touch .trail { opacity : .5; height: 100%;} 
+
+footer { position: absolute; z-index: 9 }
+footer img { width: 100%; }

@@ -1,0 +1,43 @@
+/* =Global
+----------------------------------------------- */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	color 		: $base-font-colour;
+    font-family : $base-font-family;
+	font-size 	: $base-font-size; 
+	line-height : $base-line-height; 
+	text-align 	: $base-text-align; 
+	background: url('../images/background.gif');
+	margin: 0; 
+}
+
+ 
+/* Headings */
+h1,h2,h3, h4 { 
+    font-family: $header-font-family;
+    letter-spacing: $header-letter-spacing;
+    text-transform:uppercase;
+}
+
+ 
+/* Text elements */
+p { 
+	font-family : $base-font-family;
+	font-size 	: $base-font-size;
+}
+ul, ol { margin:0; }
+ul { list-style: none; }
+b, strong { font-weight: $bold; }
+
+
+/* Clearing Group */
+.group:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+ 

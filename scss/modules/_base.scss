@@ -1,0 +1,29 @@
+// Use Compass
+@import "compass";  
+@import "breakpoints";
+
+// Font weights
+$light: 100;
+$regular: 400;
+$bold: 700;
+
+// Transitions 
+$ease-out-back: cubic-bezier(0.010, 0.915, 0.590, 1.315);
+
+// Base Font
+$base-font-family: 'rooney-web', serif;
+$base-font-weight: $regular;
+$base-font-colour: #54493b;
+$base-font-size: em(18px);
+$base-line-height: 1.5;
+$base-text-align: justify;
+
+// Headings
+$header-font-family: 'rooney-web', serif;
+$header-font-weight: $bold;
+$header-letter-spacing: .1em; 
+
+// Media Queries
+$mq-small: 750px;
+$mq-medium: 900px; 
+$mq-large: 1450px;
