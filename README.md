@@ -1,5 +1,5 @@
-Lostmy.name | Brookyln Beta
+Lostmy.name | Brooklyn Beta
 ==================
 
-The Lostmy.name | Brookyln Beta landing page.
+The Lostmy.name | Brooklyn Beta landing page.
 
