@@ -73,15 +73,16 @@
         topMargin 		= screen.height - $header.height();
         wayPointOffSet 	= ( screen.height / 3 ) * 2;
         
-        parallaxHeight = ( screen.width < mq.medium ) ? 350 : topMargin; 
+        parallaxHeight = ( !touchDevice && screen.width > mq.medium ) ? topMargin : 'auto'; 
         $parallax.css('height', parallaxHeight);
 
-        // disable if touch device
-        if (!touchDevice)
+        // disable if touch device or greater than medium media query
+        if (!touchDevice && screen.width > mq.medium )
             $header.css('top', parallaxHeight);
+        else
+            $header.css('top', 0);
 
-        //alert('screen.width - '+screen.width);
-        //alert($('.scene .sprite').css('background-image'));
+ 
     }
 
 
@@ -98,7 +99,7 @@
                     
                     parallax = false;
 
-                    if (!touchDevice)
+                    if ( screen.width > mq.medium )
                         $scene.hide();
                     
                 }
@@ -110,15 +111,15 @@
                     parallax = true;
 
                     // no need to hide / show parallax element if mobile
-                    if (!touchDevice)
+                    if ( screen.width > mq.medium )
                         $scene.show();
                 }
             }
         });
 
 
-        // disable if touch device
-        if (!touchDevice){
+        // disable if touch device or greater than medium media query
+        if (!touchDevice && screen.width > mq.medium ){
 
             // Sticky Header
             $header.waypoint(function (direction) {

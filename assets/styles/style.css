@@ -131,51 +131,93 @@ header {
   background: url("../images/background_light.gif") repeat;
   position: absolute;
 }
-/* line 8, ../../scss/partials/_main.scss */
+@media screen and (max-width: 900px) {
+  /* line 1, ../../scss/partials/_main.scss */
+  header {
+    position: fixed;
+    top: 0;
+  }
+}
+/* line 13, ../../scss/partials/_main.scss */
 header .inner {
   background: url("../images/placeholder_header.png") center no-repeat;
   width: 100%;
   height: 65px;
 }
 
-/* line 15, ../../scss/partials/_main.scss */
+/* line 19, ../../scss/partials/_main.scss */
 .touch header {
   position: fixed;
   top: 0;
 }
 
-/* line 17, ../../scss/partials/_main.scss */
-.wobbly-line {
+/* line 23, ../../scss/partials/_main.scss */
+.header-image {
+  position: relative;
   width: 100%;
-  height: 5px;
-  background: url("../images/wobbly_line.png") center bottom repeat-x;
+  min-height: 105px;
+  display: none;
+  background: url("../images/background_green.gif") repeat;
+}
+@media screen and (max-width: 900px) {
+  /* line 23, ../../scss/partials/_main.scss */
+  .header-image {
+    display: block;
+    padding: 50px 0;
+  }
 }
 
-/* line 23, ../../scss/partials/_main.scss */
+/* line 36, ../../scss/partials/_main.scss */
+.header-image img {
+  width: 100%;
+  max-width: 1056px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* line 44, ../../scss/partials/_main.scss */
+.touch .header-image {
+  display: block;
+  padding: 50px 0;
+}
+
+/* line 50, ../../scss/partials/_main.scss */
 .divider {
   height: 56px;
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: 55px;
   background: url("../images/divider.png") repeat-x bottom;
 }
+@media screen and (max-width: 900px) {
+  /* line 50, ../../scss/partials/_main.scss */
+  .divider {
+    bottom: 0;
+    height: 38px;
+    position: relative;
+    background: url("../images/divider_small.jpg") repeat-x bottom;
+  }
+}
 
-/* line 31, ../../scss/partials/_main.scss */
+/* line 65, ../../scss/partials/_main.scss */
 .touch .divider {
+  bottom: 0;
+  height: 38px;
+  position: relative;
   background: url("../images/divider_small.jpg") repeat-x bottom;
 }
 
-/* line 33, ../../scss/partials/_main.scss */
+/* line 72, ../../scss/partials/_main.scss */
 .main {
   z-index: 1;
   position: relative;
 }
-/* line 37, ../../scss/partials/_main.scss */
+/* line 76, ../../scss/partials/_main.scss */
 .main .divider {
   position: relative;
 }
 
-/* line 46, ../../scss/partials/_main.scss */
+/* line 83, ../../scss/partials/_main.scss */
 .parallax {
   background: url("../images/background_green.gif");
   overflow: hidden;
@@ -183,82 +225,74 @@ header .inner {
   height: 630px;
   overflow: hidden;
   z-index: 0;
+  padding-bottom: 0;
+  display: block;
+}
+@media screen and (max-width: 900px) {
+  /* line 83, ../../scss/partials/_main.scss */
+  .parallax {
+    display: none;
+  }
 }
 
-/* line 55, ../../scss/partials/_main.scss */
+/* line 98, ../../scss/partials/_main.scss */
 .scene {
   width: 1004px;
-  position: fixed;
+  position: absolute;
   left: 50%;
   top: 50%;
   margin: -315px 0 0 -502px;
   padding: 0;
 }
-@media screen and (max-width: 900px) {
-  /* line 55, ../../scss/partials/_main.scss */
-  .scene {
-    width: 502px;
-    margin: -160px 0 0 -251px;
-    height: 400px;
-    position: absolute;
-  }
+/* line 107, ../../scss/partials/_main.scss */
+.scene .sprite {
+  background-image: url("../images/sprite_parallax.png");
+  background-repeat: no-repeat;
+  width: 1004px;
+  height: 637px;
 }
-/* line 72, ../../scss/partials/_main.scss */
+/* line 116, ../../scss/partials/_main.scss */
 .scene .boy-girl-text {
   background-position: 0 0;
 }
-/* line 73, ../../scss/partials/_main.scss */
+/* line 117, ../../scss/partials/_main.scss */
 .scene .boy-girl {
   background-position: 0 -687px;
 }
-@media screen and (max-width: 900px) {
-  /* line 73, ../../scss/partials/_main.scss */
-  .scene .boy-girl {
-    background-position: 0 -343.5px;
-  }
-}
-/* line 77, ../../scss/partials/_main.scss */
+/* line 118, ../../scss/partials/_main.scss */
 .scene .clouds_background {
   background-position: 0 -1374px;
 }
-@media screen and (max-width: 900px) {
-  /* line 77, ../../scss/partials/_main.scss */
-  .scene .clouds_background {
-    background-position: 0 -687px;
-  }
-}
-/* line 81, ../../scss/partials/_main.scss */
+/* line 119, ../../scss/partials/_main.scss */
 .scene .clouds_foreground {
   background-position: -1054px 0;
 }
-@media screen and (max-width: 900px) {
-  /* line 81, ../../scss/partials/_main.scss */
-  .scene .clouds_foreground {
-    background-position: -502px 0;
-  }
-}
-/* line 85, ../../scss/partials/_main.scss */
+/* line 120, ../../scss/partials/_main.scss */
 .scene .text {
   background-position: -1054px -687px;
 }
-@media screen and (max-width: 900px) {
-  /* line 85, ../../scss/partials/_main.scss */
-  .scene .text {
-    background-position: -502px -343.5px;
-  }
-}
-/* line 89, ../../scss/partials/_main.scss */
+/* line 121, ../../scss/partials/_main.scss */
 .scene .tree {
   background-position: -1054px -1374px;
 }
+/* line 123, ../../scss/partials/_main.scss */
+.scene .lozenge {
+  bottom: 90px;
+}
 @media screen and (max-width: 900px) {
-  /* line 89, ../../scss/partials/_main.scss */
-  .scene .tree {
-    background-position: -502px -687px;
+  /* line 123, ../../scss/partials/_main.scss */
+  .scene .lozenge {
+    bottom: 130px;
   }
 }
-/* line 94, ../../scss/partials/_main.scss */
-.scene .lozenge {
+
+/* line 133, ../../scss/partials/_main.scss */
+.touch .parallax {
+  display: none;
+}
+
+/* line 139, ../../scss/partials/_main.scss */
+.lozenge {
   background-color: #f05a57;
   border: none;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
@@ -274,8 +308,8 @@ header .inner {
   border-color: #f05a57;
   position: absolute;
   left: 50%;
-  bottom: 90px;
   margin-left: -205px;
+  bottom: 30px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -287,36 +321,16 @@ header .inner {
   transition: background-color 400ms linear;
 }
 @media screen and (max-width: 900px) {
-  /* line 94, ../../scss/partials/_main.scss */
-  .scene .lozenge {
+  /* line 139, ../../scss/partials/_main.scss */
+  .lozenge {
     width: 200px;
     margin-left: -100px;
+    bottom: 10px;
     line-height: 44.44444px;
-    bottom: 130px;
-  }
-}
-/* line 124, ../../scss/partials/_main.scss */
-.scene .sprite {
-  background-image: url("../images/sprite_parallax.png");
-  background-repeat: no-repeat;
-  width: 1004px;
-  height: 637px;
-}
-@media screen and (max-width: 900px) {
-  /* line 124, ../../scss/partials/_main.scss */
-  .scene .sprite {
-    background-image: url("../images/sprite_parallax_small.png");
-    width: 520px;
-    height: 318.5px;
   }
 }
 
-/* line 138, ../../scss/partials/_main.scss */
-.touch .parallax .scene {
-  position: absolute;
-}
-
-/* line 148, ../../scss/partials/_main.scss */
+/* line 174, ../../scss/partials/_main.scss */
 .centered-bg-images {
   width: 100%;
   padding: 100px 0;
@@ -325,7 +339,7 @@ header .inner {
   position: absolute;
   z-index: 1;
 }
-/* line 156, ../../scss/partials/_main.scss */
+/* line 182, ../../scss/partials/_main.scss */
 .centered-bg-images ul {
   max-width: 1000px;
   width: 100%;
@@ -333,12 +347,12 @@ header .inner {
   overflow: hidden;
 }
 @media screen and (max-width: 800px) {
-  /* line 156, ../../scss/partials/_main.scss */
+  /* line 182, ../../scss/partials/_main.scss */
   .centered-bg-images ul {
     display: none;
   }
 }
-/* line 163, ../../scss/partials/_main.scss */
+/* line 189, ../../scss/partials/_main.scss */
 .centered-bg-images ul li {
   width: 100%;
   height: 265px;
@@ -348,83 +362,83 @@ header .inner {
   -o-transition: all 0.5s cubic-bezier(0.01, 0.915, 0.59, 1.315);
   transition: all 0.5s cubic-bezier(0.01, 0.915, 0.59, 1.315);
 }
-/* line 169, ../../scss/partials/_main.scss */
+/* line 195, ../../scss/partials/_main.scss */
 .centered-bg-images ul li .sprite {
   background: url("../images/sprite_story.gif");
 }
-/* line 171, ../../scss/partials/_main.scss */
+/* line 197, ../../scss/partials/_main.scss */
 .centered-bg-images ul li .boy {
   background-position: 0 -608px;
   width: 195px;
   height: 298px;
 }
-/* line 172, ../../scss/partials/_main.scss */
+/* line 198, ../../scss/partials/_main.scss */
 .centered-bg-images ul li .letter-wrap {
   background-position: 0 -1512px;
   width: 188px;
   height: 202px;
 }
-/* line 173, ../../scss/partials/_main.scss */
+/* line 199, ../../scss/partials/_main.scss */
 .centered-bg-images ul li .inuit {
   background-position: 0 -1208px;
   width: 224px;
   height: 254px;
 }
-/* line 175, ../../scss/partials/_main.scss */
+/* line 201, ../../scss/partials/_main.scss */
 .centered-bg-images ul li .framed-bear {
   margin-top: 80px;
   background-position: 0 -956px;
   width: 215px;
   height: 202px;
 }
-/* line 179, ../../scss/partials/_main.scss */
+/* line 205, ../../scss/partials/_main.scss */
 .centered-bg-images ul li .boy-happy {
   background-position: 0 -304px;
   width: 174px;
   height: 254px;
 }
-/* line 180, ../../scss/partials/_main.scss */
+/* line 206, ../../scss/partials/_main.scss */
 .centered-bg-images ul li .angel {
   background-position: 0 0;
   width: 283px;
   height: 254px;
   bottom: 0;
 }
-/* line 186, ../../scss/partials/_main.scss */
+/* line 212, ../../scss/partials/_main.scss */
 .centered-bg-images ul li div {
   margin: 0;
 }
 @media screen and (max-width: 1000px) {
-  /* line 186, ../../scss/partials/_main.scss */
+  /* line 212, ../../scss/partials/_main.scss */
   .centered-bg-images ul li div {
     margin: 0 0 0 -4%;
   }
 }
-/* line 190, ../../scss/partials/_main.scss */
+/* line 216, ../../scss/partials/_main.scss */
 .centered-bg-images ul li:nth-child(even) div {
   float: right;
   margin: 0;
 }
 @media screen and (max-width: 1000px) {
-  /* line 190, ../../scss/partials/_main.scss */
+  /* line 216, ../../scss/partials/_main.scss */
   .centered-bg-images ul li:nth-child(even) div {
     margin: 0 -4% 0 0;
   }
 }
 
-/* line 200, ../../scss/partials/_main.scss */
+/* line 226, ../../scss/partials/_main.scss */
 .no-touch .centered-bg-images ul li {
   opacity: 0;
 }
 
-/* line 202, ../../scss/partials/_main.scss */
+/* line 228, ../../scss/partials/_main.scss */
 .no-touch .centered-bg-images ul li.reveal,
 .touch .centered-bg-images ul li {
   opacity: 1;
   margin-top: 0px;
 }
 
-/* line 211, ../../scss/partials/_main.scss */
+/* line 237, ../../scss/partials/_main.scss */
 .centered-content {
   width: 90%;
   max-width: 960px;
@@ -434,13 +448,13 @@ header .inner {
   z-index: 2;
 }
 @media screen and (max-width: 800px) {
-  /* line 211, ../../scss/partials/_main.scss */
+  /* line 237, ../../scss/partials/_main.scss */
   .centered-content {
     padding: 50px 0 90px;
   }
 }
 
-/* line 224, ../../scss/partials/_main.scss */
+/* line 250, ../../scss/partials/_main.scss */
 .paragraph-text p,
 .paragraph-text h2 {
   padding: 1em 1em 4em;
@@ -449,39 +463,39 @@ header .inner {
   margin: 0 auto;
 }
 @media screen and (max-width: 800px) {
-  /* line 224, ../../scss/partials/_main.scss */
+  /* line 250, ../../scss/partials/_main.scss */
   .paragraph-text p,
   .paragraph-text h2 {
     padding: 1em;
   }
 }
 
-/* line 233, ../../scss/partials/_main.scss */
+/* line 259, ../../scss/partials/_main.scss */
 .paragraph-text .standout {
   font-size: 19.55556px;
   font-weight: 700;
 }
 
-/* line 238, ../../scss/partials/_main.scss */
+/* line 264, ../../scss/partials/_main.scss */
 .paragraph-text p.standout:first-letter {
   font-size: 1.8em;
 }
 
 @media screen and (max-width: 500px) {
-  /* line 241, ../../scss/partials/_main.scss */
+  /* line 267, ../../scss/partials/_main.scss */
   .paragraph-text p {
     font-size: .8em;
   }
 }
 
-/* line 245, ../../scss/partials/_main.scss */
+/* line 271, ../../scss/partials/_main.scss */
 .paragraph-text.base {
   background: url("../images/background_light.gif") repeat;
   margin-bottom: 0;
   padding-bottom: 2em;
 }
 
-/* line 255, ../../scss/partials/_main.scss */
+/* line 281, ../../scss/partials/_main.scss */
 .trail {
   margin-top: 200px;
   left: 0;
@@ -498,30 +512,30 @@ header .inner {
   transition: opacity 0.8s linear;
 }
 @media screen and (max-width: 800px) {
-  /* line 255, ../../scss/partials/_main.scss */
+  /* line 281, ../../scss/partials/_main.scss */
   .trail {
     display: none;
   }
 }
 
-/* line 270, ../../scss/partials/_main.scss */
+/* line 296, ../../scss/partials/_main.scss */
 .trail.display {
   opacity: 0.5;
 }
 
-/* line 272, ../../scss/partials/_main.scss */
+/* line 298, ../../scss/partials/_main.scss */
 .touch .trail {
   opacity: .5;
   height: 100%;
 }
 
-/* line 274, ../../scss/partials/_main.scss */
+/* line 302, ../../scss/partials/_main.scss */
 footer {
   position: absolute;
   z-index: 9;
 }
 
-/* line 275, ../../scss/partials/_main.scss */
+/* line 303, ../../scss/partials/_main.scss */
 footer img {
   width: 100%;
 }

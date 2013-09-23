@@ -5,30 +5,69 @@ header {
   background: url('../images/background_light.gif') repeat; 
   position: absolute;
 
+  @include breakpoint( $mq-medium ) { 
+    position: fixed; 
+    top:0;
+  }
+
   .inner {
     background: url('../images/placeholder_header.png') center no-repeat;
     width: 100%;
     height: 65px;
   }
 } 
- 
 .touch header{ position: fixed; top:0 }
 
-.wobbly-line {
-  width:100%;
-  height:5px;
-  background: url('../images/wobbly_line.png') center bottom repeat-x;
+
+
+.header-image {
+  position: relative;
+  width: 100%; 
+  min-height: 105px;
+  display: none; 
+  background: url('../images/background_green.gif') repeat; 
+
+  @include breakpoint( $mq-medium ) { 
+    display: block;
+    padding:50px 0; 
+  }
 }
 
+.header-image img{
+  width: 100%;
+  max-width: 1056px;
+  margin: 0 auto;
+  display: block;
+}
+
+// display header-image on smart devices 
+.touch .header-image { 
+  display:block; 
+  padding:50px 0;
+}
+
+ 
 .divider {
   height: 56px;
   width: 100%;
   position: absolute;
-  bottom:0;
+  bottom: 55px;  
   background: url('../images/divider.png') repeat-x bottom; 
+  
+  @include breakpoint( $mq-medium ) { 
+    bottom: 0; 
+    height: 38px;
+    position: relative;
+    background: url('../images/divider_small.jpg') repeat-x bottom; 
+  }
 }
 
-.touch .divider{ background: url('../images/divider_small.jpg') repeat-x bottom; }
+.touch .divider { 
+  bottom: 0; 
+  height: 38px;
+  position: relative;
+  background: url('../images/divider_small.jpg') repeat-x bottom; 
+}
 
 .main {
   z-index: 1;
@@ -36,8 +75,6 @@ header {
 
   .divider { position: relative; }
 }
-
-
 
 
 
@@ -50,95 +87,84 @@ header {
   height: 630px;
   overflow:hidden;
   z-index: 0; 
+  padding-bottom:0;
+  display:block;
+
+  @include breakpoint( $mq-medium ) { 
+    display:none;
+  }
 } 
 
 .scene {
   width:1004px;
-  position:fixed;
+  position:absolute;
   left:50%;
   top:50%;
   margin: -315px 0 0 -502px;
-  padding: 0;
+  padding: 0; 
 
-  @include breakpoint( $mq-medium ) { 
-    width:502px;
-    margin: -160px 0 0 -251px;
-    height: 400px;
-    position: absolute;
-  }
-
-
-  // Parallax Sprite Positioning
-  .boy-girl-text{ background-position: 0 0; } 
-  .boy-girl{ 
-    background-position: 0 -687px; 
-    @include breakpoint( $mq-medium ) {  background-position: 0 -343.5px; }
-  } 
-  .clouds_background{ 
-    background-position: 0 -1374px; 
-    @include breakpoint( $mq-medium ) {  background-position: 0 -687px; }  
-  } 
-  .clouds_foreground{ 
-    background-position: -1054px 0;
-    @include breakpoint( $mq-medium ) {  background-position: -502px 0; }
-  } 
-  .text{ 
-    background-position: -1054px -687px; 
-    @include breakpoint( $mq-medium ) {  background-position: -502px -343.5px; }
-  } 
-  .tree{ 
-    background-position: -1054px -1374px; 
-    @include breakpoint( $mq-medium ) {  background-position: -502px -687px; }
-  } 
-
-  .lozenge {
-    background-color: #f05a57;
-    border: none;
-    box-shadow: 0px 1px 2px rgba(0,0,0,0.4);
-    color: white;
-    display: block;
-    font-size: em(22px);
-    font-weight: normal;
-    line-height: em(60px);
-    text-align: center;
-    text-decoration: none;
-    text-shadow: 0px 1px 1px rgba(0,0,0,0.3);
-    width: 410px;
-    border-color: #f05a57; 
-    position:absolute;
-    left:50%;
-    bottom:90px;
-    margin-left: -205px;
-
-    @include border-radius( 5px ); 
-    @include transition( background-color 400ms linear );
-
-    @include breakpoint( $mq-medium ) {  
-      width: 200px;      
-      margin-left: -100px; 
-      line-height: em(50px);
-      bottom:130px;
-    }
-  }
 
   .sprite{ 
     background-image: url('../images/sprite_parallax.png');
     background-repeat: no-repeat;
     width: 1004px; 
-    height: 637px; 
-
-    @include breakpoint( $mq-medium ) { 
-      background-image: url('../images/sprite_parallax_small.png');
-      width: 520px; 
-      height: 318.5px; 
-    }
+    height: 637px;  
   }
+
+
+  // Parallax Sprite Positioning
+  .boy-girl-text{ background-position: 0 0; } 
+  .boy-girl{ background-position: 0 -687px; } 
+  .clouds_background{ background-position: 0 -1374px;} 
+  .clouds_foreground{ background-position: -1054px 0; } 
+  .text{ background-position: -1054px -687px; } 
+  .tree{ background-position: -1054px -1374px; } 
+
+  .lozenge {
+     
+    bottom:90px;    
+    @include breakpoint( $mq-medium ) {   
+      bottom:130px;
+    }
+  } 
 }
  
-.touch .parallax .scene { 
-  position: absolute; 
-}
+// hide parallax on smart devices 
+.touch .parallax { display:none }
 
+
+
+
+
+.lozenge {
+  background-color: #f05a57;
+  border: none;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.4);
+  color: white;
+  display: block;
+  font-size: em(22px);
+  font-weight: normal;
+  line-height: em(60px);
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.3);
+  width: 410px;
+  border-color: #f05a57; 
+  position:absolute;
+  left:50%;
+  margin-left: -205px;
+  bottom: 30px;
+
+  @include border-radius( 5px ); 
+  @include transition( background-color 400ms linear );
+
+  @include breakpoint( $mq-medium ) {  
+    width: 200px;      
+    margin-left: -100px; 
+    bottom: 10px;
+    line-height: em(50px); 
+  }
+} 
 
 
 
@@ -270,6 +296,8 @@ header {
 .trail.display { opacity : .5 }
 
 .touch .trail { opacity : .5; height: 100%;} 
+
+.outro { }
 
 footer { position: absolute; z-index: 9 }
 footer img { width: 100%; }

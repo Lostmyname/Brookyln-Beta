@@ -8,8 +8,8 @@ sass_dir = "scss"
 #javascripts_dir = "assets/scripts"
 
 # Development
-# output_style = :expanded 
+output_style = :expanded 
 
 # Production
-output_style = :compressed 
+#output_style = :compressed 
  
