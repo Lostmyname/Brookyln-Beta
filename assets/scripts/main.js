@@ -33,10 +33,10 @@
 
     function setup() {
 
+        touchDevice = $html.hasClass('touch') ? true : false;
+
         // Set Dimensions
         setDimensions();
-
-        touchDevice = $html.hasClass('touch') ? true : false;
 
         // Skip onscroll listener if mobile device
         if (!touchDevice)
@@ -47,6 +47,8 @@
 
         // Waypoint fired after / before first fold
         setWaypoints();
+
+        //alert($('.scene .sprite').css('background-image'));
     }
 
 
@@ -70,28 +72,20 @@
         screen.width 	= $win.width();
         topMargin 		= screen.height - $header.height();
         wayPointOffSet 	= ( screen.height / 3 ) * 2;
-
-        parallaxHeight = screen.width < mq.medium ? 350 : topMargin; 
+        
+        parallaxHeight = ( screen.width < mq.medium ) ? 350 : topMargin; 
         $parallax.css('height', parallaxHeight);
-        $header.css('top', parallaxHeight);
+
+        // disable if touch device
+        if (!touchDevice)
+            $header.css('top', parallaxHeight);
+
+        //alert('screen.width - '+screen.width);
+        //alert($('.scene .sprite').css('background-image'));
     }
 
 
     function setWaypoints() {
-
-        // Sticky Header
-        $header.waypoint(function (direction) {
-            if (direction === 'down')
-                $header.css({
-                    'top': 0,
-                    'position': 'fixed'
-                });
-            else
-                $header.css({
-                    'top': parallaxHeight,
-                    'position': 'absolute'
-                });
-        });
 
 
         // Main - enable / disable parallax 
@@ -101,22 +95,40 @@
                 // off
                 if (parallax) {
                     $scene.parallax('disable');
-                    $scene.hide();
+                    
                     parallax = false;
+
+                    if (!touchDevice)
+                        $scene.hide();
+                    
                 }
             } else {
                 // on 
                 if (!parallax) {
                     $scene.parallax('enable');
-                    $scene.show();
+
                     parallax = true;
+
+                    // no need to hide / show parallax element if mobile
+                    if (!touchDevice)
+                        $scene.show();
                 }
             }
         });
 
 
-        // Reveal / Hide images
+        // disable if touch device
         if (!touchDevice){
+
+            // Sticky Header
+            $header.waypoint(function (direction) {
+                if (direction === 'down')
+                    $(this).css({ 'top': 0, 'position':'fixed' });
+                else
+                    $(this).css({ 'top': parallaxHeight, 'position':'absolute'  });
+            });
+
+            // Reveal / Hide images
 	        $('.centered-bg-images li').each(function () {
 
 	            $(this).waypoint(function (direction) {

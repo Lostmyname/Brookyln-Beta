@@ -1,16 +1,18 @@
 header {  
   width:100%;
   height: 67px;
-  position: absolute;
   z-index: 99;
   background: url('../images/background_light.gif') repeat; 
+  position: absolute;
 
   .inner {
     background: url('../images/placeholder_header.png') center no-repeat;
     width: 100%;
     height: 65px;
   }
-}
+} 
+ 
+.touch header{ position: fixed; top:0 }
 
 .wobbly-line {
   width:100%;
@@ -18,15 +20,15 @@ header {
   background: url('../images/wobbly_line.png') center bottom repeat-x;
 }
 
-header.show { top:0; }  
-
 .divider {
-  height: 55px;
+  height: 56px;
   width: 100%;
   position: absolute;
   bottom:0;
   background: url('../images/divider.png') repeat-x bottom; 
 }
+
+.touch .divider{ background: url('../images/divider_small.jpg') repeat-x bottom; }
 
 .main {
   z-index: 1;
@@ -48,34 +50,23 @@ header.show { top:0; }
   height: 630px;
   overflow:hidden;
   z-index: 0; 
- 
+} 
 
-  .scene {
-    width:1004px;
-    position:fixed;
-    left:50%;
-    top:50%;
-    margin: -315px 0 0 -502px;
-    padding: 0;
+.scene {
+  width:1004px;
+  position:fixed;
+  left:50%;
+  top:50%;
+  margin: -315px 0 0 -502px;
+  padding: 0;
 
-    @include breakpoint( $mq-medium ) { 
-      width:502px;
-      margin: -160px 0 0 -251px;
-      height: 400px;
-    }
+  @include breakpoint( $mq-medium ) { 
+    width:502px;
+    margin: -160px 0 0 -251px;
+    height: 400px;
+    position: absolute;
   }
 
-  .sprite{ 
-    background: url('../images/sprite_parallax.png') no-repeat ;
-    width: 1004px; 
-    height: 637px; 
-
-    @include breakpoint( $mq-medium ) { 
-      background: url('../images/sprite_parallax_small.png') no-repeat ; 
-      width: 520px; 
-      height: 318.5px; 
-    }
-  }
 
   // Parallax Sprite Positioning
   .boy-girl-text{ background-position: 0 0; } 
@@ -99,8 +90,6 @@ header.show { top:0; }
     background-position: -1054px -1374px; 
     @include breakpoint( $mq-medium ) {  background-position: -502px -687px; }
   } 
-
-
 
   .lozenge {
     background-color: #f05a57;
@@ -131,9 +120,24 @@ header.show { top:0; }
       bottom:130px;
     }
   }
-} 
+
+  .sprite{ 
+    background-image: url('../images/sprite_parallax.png');
+    background-repeat: no-repeat;
+    width: 1004px; 
+    height: 637px; 
+
+    @include breakpoint( $mq-medium ) { 
+      background-image: url('../images/sprite_parallax_small.png');
+      width: 520px; 
+      height: 318.5px; 
+    }
+  }
+}
  
-.touch .parallax .scene { position: absolute; }
+.touch .parallax .scene { 
+  position: absolute; 
+}
 
 
 
@@ -211,6 +215,8 @@ header.show { top:0; }
   padding:180px 0 90px;
   position: relative;
   z-index: 2;
+
+  @include breakpoint( 800px ) { padding:50px 0 90px;}
 }
 
 
