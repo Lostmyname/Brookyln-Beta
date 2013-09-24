@@ -173,18 +173,21 @@ header {
 // Images
 .centered-bg-images {
   width: 100%;
-  padding:100px 0; 
+  padding:100px 0 0; 
   top:0;
   left: 0; 
   position: absolute;
   z-index: 1;
+
+  @include breakpoint( 800px ) { padding:20px 0;}
 
   ul { 
     max-width : 1000px;
     width: 100%;
     margin: 0 auto; 
     overflow: hidden;
-    @include breakpoint( 800px ) { display:none; }
+    display:block;
+    @include breakpoint( 650px ) { display:none; }
 
     li { 
       width : 100% ;
@@ -202,21 +205,23 @@ header {
         margin-top: 80px;
         background-position: 0 -956px; width: 215px; height: 202px;
       }
-      .boy-happy { background-position: 0 -304px; width: 174px; height: 254px; }
-      .angel { 
-        background-position: 0 0; width: 283px; height: 254px;
-        bottom:0;
-      }
+      .girl-happy { background-position: 0 -304px; width: 174px; height: 254px; }
+      // .angel { 
+      //   background-position: 0 0; width: 283px; height: 254px;
+      //   bottom:0;
+      // }
     }
 
     li div {  
       margin: 0; 
       @include breakpoint( 1000px) { margin: 0 0 0 -4%; }
+      @include breakpoint( 800px ) { margin: 0 0 0 -12%; }
     }
     li:nth-child(even) div { 
       float:right;
       margin: 0; 
       @include breakpoint( 1000px) { margin: 0 -4% 0 0; }
+      @include breakpoint( 800px ) { margin: 0 -12% 0 0; }
     }
 
 
