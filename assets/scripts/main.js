@@ -76,6 +76,9 @@
         parallaxHeight = ( !touchDevice && screen.width > mq.medium ) ? topMargin : 'auto'; 
         $parallax.css('height', parallaxHeight);
 
+        // Don't make trail taller than parallax text
+        $trail.css('max-height', $('.centered-content-parallax').height());
+
         // disable if touch device or greater than medium media query
         if (!touchDevice && screen.width > mq.medium )
             $header.css('top', parallaxHeight);
